@@ -1,9 +1,9 @@
-name: Build Android APK with EAS
+name: EAS Build Android
 
 on:
   push:
     branches:
-      - main  # hoặc branch bạn muốn build
+      - main  # Hoặc branch bạn muốn build
 
 jobs:
   build:
@@ -24,8 +24,6 @@ jobs:
         run: npm install
 
       - name: EAS Build Android
-        run: eas build --platform android --non-interactive --profile preview  # hoặc profile bạn đã config
-
-      - name: Upload build URL
-        run: |
-          echo "Lấy link từ kết quả build trong log EAS"
+        run: eas build --platform android --non-interactive --profile preview
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
