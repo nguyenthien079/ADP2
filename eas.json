@@ -1,16 +1,12 @@
 {
   "build": {
     "preview": {
-      "developmentClient": false,
+      "workflow": "managed",
       "distribution": "internal"
     },
     "production": {
-      "android": {
-        "workflow": "managed"
-      },
-      "ios": {
-        "workflow": "managed"
-      }
+      "workflow": "managed",
+      "distribution": "store"
     }
   }
 }
