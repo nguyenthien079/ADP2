@@ -1,0 +1,29 @@
+name: EAS Build Android
+
+on:
+  push:
+    branches:
+      - main  # Hoặc branch bạn muốn build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: EAS Build Android
+        run: eas build --platform android --non-interactive --profile preview
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
