@@ -1,0 +1,31 @@
+name: Build Android APK with EAS
+
+on:
+  push:
+    branches:
+      - main  # hoặc branch bạn muốn build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: EAS Build Android
+        run: eas build --platform android --non-interactive --profile preview  # hoặc profile bạn đã config
+
+      - name: Upload build URL
+        run: |
+          echo "Lấy link từ kết quả build trong log EAS"
