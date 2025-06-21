@@ -4,11 +4,9 @@
   },
   "build": {
     "preview": {
-      "workflow": "managed",
       "distribution": "internal"
     },
     "production": {
-      "workflow": "managed",
       "distribution": "store"
     }
   },
