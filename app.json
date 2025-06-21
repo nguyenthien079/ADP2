@@ -23,6 +23,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "66f58c3a-3f4a-4b8d-8ced-e38efa3b1325"
+      }
+    },
+    "owner": "sinphoenix"
   }
 }
