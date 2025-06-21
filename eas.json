@@ -1,4 +1,7 @@
 {
+  "cli": {
+    "version": ">= 7.5.0"
+  },
   "build": {
     "preview": {
       "workflow": "managed",
@@ -8,5 +11,8 @@
       "workflow": "managed",
       "distribution": "store"
     }
+  },
+  "submit": {
+    "production": {}
   }
 }
