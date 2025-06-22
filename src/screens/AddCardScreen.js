@@ -3,13 +3,18 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Alert } from 'react-native';
 import { createFlashcard } from '../services/flashcardService'; // Thêm dòng này
 
+
+export const isValidCard = (question, answer) => {
+  return question.trim().length > 0 && answer.trim().length > 0;
+};
+
 const AddCardScreen = ({ route, navigation }) => {
   const { deckId } = route.params;
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
   const saveCard = async () => {
-    if (!question.trim() || !answer.trim()) {
+    if (!isValidCard(question, answer)) {
       Alert.alert("Lỗi", "Vui lòng nhập đầy đủ câu hỏi và câu trả lời.");
       return;
     }
