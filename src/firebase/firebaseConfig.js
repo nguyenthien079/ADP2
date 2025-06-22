@@ -1,26 +1,33 @@
-// firebaseConfig.ts
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
-
-// ✅ Bổ sung các import dưới đây:
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import {
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_APP_ID,
+  FIREBASE_DATABASE_URL
+} from '@env';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBfeZbv0sWwRHdrVAbmEA4i6p-4D0hl03g",
-  authDomain: "khang-a98ec.firebaseapp.com",
-  projectId: "khang-a98ec",
-  storageBucket: "khang-a98ec.appspot.com",
-  messagingSenderId: "77513894336",
-  appId: "1:77513894336:android:aa9146f84f72dcebf40025",
-  databaseURL: "https://khang-a98ec-default-rtdb.asia-southeast1.firebasedatabase.app"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID,
+  databaseURL: FIREBASE_DATABASE_URL
+  
 };
 
 const app = initializeApp(firebaseConfig);
 
-// ✅ Dùng initializeAuth thay vì getAuth
 const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(AsyncStorage),
 });
