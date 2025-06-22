@@ -37,18 +37,21 @@
     "@react-native-picker/picker": "2.9.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "^18.3.20",
-    "metro-react-native-babel-preset": "^0.77.0",
-    "typescript": "^5.8.3"
-  },
+  "@babel/core": "^7.20.0",
+  "@types/react": "^18.3.20",
+  "metro-react-native-babel-preset": "^0.77.0",
+  "typescript": "^5.8.3",
+  "@testing-library/react-native": "12.1.5",
+  "@testing-library/jest-native": "^5.4.3",
+  "react-test-renderer": "18.3.1"
+}
   "jest": {
-    "preset": "jest-expo",
+    "preset": "react-native",
     "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.js"
+      "@testing-library/jest-native/extend-expect"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|@testing-library)/)"
+      "node_modules/(?!(jest-)?react-native|@react-native|@react-navigation)"
     ]
   },
   "private": true
