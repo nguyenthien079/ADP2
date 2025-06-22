@@ -1,14 +1,25 @@
 {
   "cli": {
-    "version": ">= 7.5.0",
+    "version": ">=16.12.0",
     "appVersionSource": "remote"
   },
   "build": {
-    "preview": {
+    "development": {
+      "developmentClient": true,
       "distribution": "internal"
     },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "credentialsSource": "remote"
+      }
+    },
     "production": {
-      "distribution": "store"
+      "distribution": "store",
+      "autoIncrement": true,
+      "android": {
+        "credentialsSource": "remote"
+      }
     }
   },
   "submit": {

@@ -22,7 +22,7 @@ describe('AddCardScreen UI', () => {
     );
     expect(getByPlaceholderText('Câu hỏi')).toBeTruthy();
     expect(getByPlaceholderText('Câu trả lời')).toBeTruthy();
-    expect(getByText('Lưu thẻ')).toBeTruthy();
+    expect(getByText('Lưu thẻ!')).toBeTruthy();
   });
 
   it('shows error alert if question or answer empty', async () => {
