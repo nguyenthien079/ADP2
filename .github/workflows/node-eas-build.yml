@@ -26,10 +26,12 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
+      - name: ✅ Run test
+        run: npm test
 
       - name: 🛠️ Build (nếu có)
         run: npm run build --if-present
-
+        
   build-android:
     needs: test-node  # Chạy sau khi test xong
     runs-on: ubuntu-latest
